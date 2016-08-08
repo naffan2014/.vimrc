@@ -29,7 +29,6 @@ nnoremap f :NERDTreeToggle
 syntax on "语法高亮
 set nocompatible "避免一致性模式
 set shell=/bin/zsh "shell换成oh-my-zsh
-set encoding=utf-8 "编码
 set guifont=Courier\ 14
 set modelines=0
 "下面的4歌参数参看:http://blog.163.com/allan_36983689/blog/static/316982402010118414355/
@@ -59,13 +58,19 @@ set ignorecase "搜索时不区分大小写
 set smartcase
 set gdefault
 set showmatch
+set foldenable "允许折叠
+set foldmethod=manual "手动折叠
 set nu "显示行号
 set ruler "在编辑过程中，在右下角显示光标位置的状态行 
 set hls "寻找匹配是高亮度显示的 "打开语法高亮
 set incsearch "增量匹配查找模式
+if version >= 603
+    set helplang=cn "显示中文帮助
+    set encoding=utf-8 "编码
+endif
 "set spell spellang=en_us "将拼写检查设置为英文
 if has('mouse')
-  set mouse=a "开启鼠标功能
+    set mouse=a "开启鼠标功能
 endif
 
 
