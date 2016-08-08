@@ -9,7 +9,7 @@
 execute pathogen#infect()
 """""""""""""NERD_TREE 配置""""""""""""" 
 "How can I open a NERDTree automatically when vim starts up?
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 "How can I open a NERDTree automatically when vim starts up if no files were specified?
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -26,11 +26,42 @@ let NERDTreeWinPos='left'
 let NERDTreeWinSize=31
 nnoremap f :NERDTreeToggle
 """"""""""""""""""""""基础配置""""""""""""""""""
+syntax on "语法高亮
 set nocompatible "避免一致性模式
+set shell=/bin/zsh "shell换成oh-my-zsh
 set encoding=utf-8 "编码
+set guifont=Courier\ 14
+set modelines=0
+"下面的4歌参数参看:http://blog.163.com/allan_36983689/blog/static/316982402010118414355/
+set tabstop=4 "tab为4个空格
+set shiftwidth=4 "自动缩进空格数量
+set softtabstop=4 "弥补tabstop和shiftwidth不一样时的空格数
+set expandtab "自动将tab转变为空格
+set scrolloff=3 "光标移动到buffer的顶部和底部时保持3行距离
+"设置缩进
+set autoindent 
+set cindent
+set showmode "显示当前操作模式
+set showcmd "显示输入的质量
+set hidden
+"在用<ESC>:的时候通过tab可以进行垂直联想枚举，vim-sensible帮我做了，所以在这里我就不开开了
+"set wildmenu
+"set wildmode=list:longest
+"set novb "错误的时候不出bb的声音，不影响人家睡觉:D
+set ttyfast "当文件特别大时移动光标会很慢，开启会快很多
+set backspace=indent,eol,start
+set relativenumber
+set noundofile "不创建撤销文件
+set nobackup "不创建备份文件
+set noswapfile "不创建临时交换文件
+set nowritebackup "编辑时不需要本分文件
+set ignorecase "搜索时不区分大小写
+set smartcase
+set gdefault
+set showmatch
 set nu "显示行号
 set ruler "在编辑过程中，在右下角显示光标位置的状态行 
-set hls "寻找匹配是高亮度显示的
+set hls "寻找匹配是高亮度显示的 "打开语法高亮
 set incsearch "增量匹配查找模式
 "set spell spellang=en_us "将拼写检查设置为英文
 if has('mouse')
@@ -38,7 +69,6 @@ if has('mouse')
 endif
 
 
-syntax on "语法高亮
 filetype plugin indent on "检测文件类型
 
 """"""""""""""""""""""配色方案""""""""""""""""""
