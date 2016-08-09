@@ -24,8 +24,21 @@ let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos='left'
 let NERDTreeWinSize=31
-
-""""""""""""""""""""""基础配置""""""""""""""""""
+let NERDTreeHighlightCursorline=1
+let NERDTreeShowHidden=0
+let NERDTreeStatusline=1
+map <C-n> :NERDTreeToggle<CR> 
+"""""""""""taglist 配置"""""""""""""""""""
+let Tlist_Auto_Open = 1 "默认打开taglist 
+let Tlist_Show_one_File=1 "只显示当前文件的 
+let Tlist_Exit_OnlyWindow=1 "如果只剩taglist窗了，直接关闭
+let Tlist_Ctags_Cmd="/usr/bin/ctags" "用系统安装的ctags
+let Tlist_Use_Right_Window = 1 "开在窗口右侧
+let Tlist_Enable_Fold_Column = 1
+let Tlist_Auto_Highlight_Tag = 1
+let Tlist_Sort_Type = "name" "排序模式
+let Tlist_WinWidth = 40
+"""""""""""""""""""""""基础配置""""""""""""""""""
 set nocompatible "避免一致性模式
 set shell=/bin/zsh "shell换成oh-my-zsh
 set guifont=Courier\ 14
@@ -34,17 +47,16 @@ set modelines=0
 "http://blog.163.com/allan_36983689/blog/static/316982402010118414355/
 set tabstop=4 "tab为4个空格
 set shiftwidth=4 "自动缩进空格数量
-set softtabstop=4 "弥补tabstop和shiftwidth不一样时的空格数
-set expandtab "自动将tab转变为空格
+set softtabstop=4 "弥补tabstop和shiftwidth不一样时的空格数 
+set expandtab "自动将tab转变为空格 
 set scrolloff=3 "光标移动到buffer的顶部和底部时保持3行距离
-"设置缩进
-set autoindent 
-set cindent
-set showmode "显示当前操作模式
-set showcmd "显示输入的质量
-set hidden
-"在用<ESC>:的时候通过tab可以进行垂直联想枚举，vim-sensible帮我做了，所以在这里
-"我就不开开了
+"设置缩进 
+"set autoindent 
+"set cindent
+"set showmode "显示当前操作模式 
+"set showcmd "显示输入的质量 
+"set hidden "在用<ESC>:的时候通过tab可以进行垂直联想枚举，vim-sensible帮我做了
+"，所以在这里我就不开开了 
 "set wildmenu
 "set wildmode=list:longest
 "set novb "错误的时候不出bb的声音，不影响人家睡觉:D
@@ -99,7 +111,6 @@ colorscheme solarized "配色方案:murphy
 
 """"""""""""""""""""""键位映射配置""""""""""""""
 let mapleader = "\<Space>" "将<leader>=\映射到空格
-nnoremap <leader>f :NERDTreeToggle<CR>
 inoremap jk <ESC> "将esc映射到jk同时按
 nnoremap <leader>s :set spell! "切换拼写检查
 "nnoremap <leader>f 1z= "修正拼写检查
