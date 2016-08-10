@@ -30,14 +30,19 @@ let NERDTreeStatusline=1
 map <C-n> :NERDTreeToggle<CR> 
 """""""""""taglist 配置"""""""""""""""""""
 let Tlist_Auto_Open = 1 "默认打开taglist 
+let Tlist_Enable_Fold_Column = 1
+let Tlist_Auto_Highlight_Tag = 1
 let Tlist_Show_one_File=1 "只显示当前文件的 
 let Tlist_Exit_OnlyWindow=1 "如果只剩taglist窗了，直接关闭
 let Tlist_Ctags_Cmd="/usr/bin/ctags" "用系统安装的ctags
 let Tlist_Use_Right_Window = 1 "开在窗口右侧
-let Tlist_Enable_Fold_Column = 1
-let Tlist_Auto_Highlight_Tag = 1
+let Tlist_Auto_Update = 1
 let Tlist_Sort_Type = "name" "排序模式
 let Tlist_WinWidth = 40
+""""""""""""signature 配置 """"""""""""""""""
+
+
+
 """""""""""""""""""""""基础配置""""""""""""""""""
 set nocompatible "避免一致性模式
 set shell=/bin/zsh "shell换成oh-my-zsh
@@ -51,15 +56,14 @@ set softtabstop=4 "弥补tabstop和shiftwidth不一样时的空格数
 set expandtab "自动将tab转变为空格 
 set scrolloff=3 "光标移动到buffer的顶部和底部时保持3行距离
 "设置缩进 
-"set autoindent 
-"set cindent
-"set showmode "显示当前操作模式 
-"set showcmd "显示输入的质量 
+set autoindent 
+set cindent
+set showmode "显示当前操作模式 
+set showcmd "显示输入的质量 
 "set hidden "在用<ESC>:的时候通过tab可以进行垂直联想枚举，vim-sensible帮我做了
 "，所以在这里我就不开开了 
 "set wildmenu
-"set wildmode=list:longest
-"set novb "错误的时候不出bb的声音，不影响人家睡觉:D
+"set wildmode=list:longest "set novb "错误的时候不出bb的声音，不影响人家睡觉:D
 set ttyfast "当文件特别大时移动光标会很慢，开启会快很多
 set backspace=indent,eol,start
 set relativenumber
@@ -82,6 +86,8 @@ set nu "显示行号
 set ruler "在编辑过程中，在右下角显示光标位置的状态行 
 set hls "寻找匹配是高亮度显示的 
 set incsearch "增量匹配查找模式
+set cursorline "高亮当前行
+set cursorcolumn "高亮当前列
 set colorcolumn=80
 if version >= 603
     set helplang=cn "显示中文帮助
@@ -93,19 +99,19 @@ if has('mouse')
 endif
 
 
-filetype plugin indent on "检测文件类型
+filetype plugin indent on "检测文件类型并自适应不同语言的只能缩进
 au FocusLost * :wa "vim失去焦点后保存.up:只保存被修改的文件 silent! up：不提示
 """"""""""""""""""""""配色方案""""""""""""""""""
-syntax on"语法高亮
+syntax enable "开启语法高亮功能
+syntax on "允许用指定语法高亮配色方案替换默认方案
 let g:solarized_termcolors=256
+let g:Powerline_colorscheme='solarized256'
 if has('gui_running')
     set background=light
 else
     set background=dark
 endif
 colorscheme solarized "配色方案:murphy
-
-
 
 
 
